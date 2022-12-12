@@ -2784,7 +2784,7 @@ EOF
 {
     "dns": {
         "servers": [
-          "8.8.8.8"
+          "localhost"
         ]
   }
 }
@@ -4868,19 +4868,19 @@ EOF
 		cat <<EOF >${configPath}10_ipv4_outbounds.json
 {
     "outbounds":[
+		{
+            "protocol":"freedom",
+            "settings":{
+                "domainStrategy":"UseIPv6"
+            },
+            "tag":"IPv6-out"
+        },
         {
             "protocol":"freedom",
             "settings":{
                 "domainStrategy":"UseIPv4"
             },
             "tag":"IPv4-out"
-        },
-        {
-            "protocol":"freedom",
-            "settings":{
-                "domainStrategy":"UseIPv6"
-            },
-            "tag":"IPv6-out"
         },
         {
             "protocol":"blackhole",
